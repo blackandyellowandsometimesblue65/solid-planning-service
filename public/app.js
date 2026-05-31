@@ -21,7 +21,7 @@ document.getElementById("buildBtn").addEventListener("click", async () => {
   try {
     // 1. FLOORPLAN
     const floorplan = await step("Generating floorplan…", async () => {
-      const res = await fetch("/api/solid-planning/generate-floorplan", {
+      const res = await fetch("/api/generate-floorplan", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ client, sqft, beds, baths, garage })
@@ -31,7 +31,7 @@ document.getElementById("buildBtn").addEventListener("click", async () => {
 
     // 2. DIMENSIONS
     const dimensions = await step("Generating dimensions…", async () => {
-      const res = await fetch("/api/solid-planning/generate-dimensions", {
+      const res = await fetch("/api/generate-dimensions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ client, sqft })
@@ -41,7 +41,7 @@ document.getElementById("buildBtn").addEventListener("click", async () => {
 
     // 3. ELEVATIONS
     const elevations = await step("Generating elevations…", async () => {
-      const res = await fetch("/api/solid-planning/generate-elevations", {
+      const res = await fetch("/api/generate-elevations", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ client })
@@ -51,7 +51,7 @@ document.getElementById("buildBtn").addEventListener("click", async () => {
 
     // 4. MATERIALS
     const materials = await step("Generating materials…", async () => {
-      const res = await fetch("/api/solid-planning/generate-materials", {
+      const res = await fetch("/api/generate-materials", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ client })
@@ -61,7 +61,7 @@ document.getElementById("buildBtn").addEventListener("click", async () => {
 
     // 5. RENDER PHOTO
     const render = await step("Rendering photo…", async () => {
-      const res = await fetch("/api/solid-planning/render-photo", {
+      const res = await fetch("/api/render-photo", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ client })
